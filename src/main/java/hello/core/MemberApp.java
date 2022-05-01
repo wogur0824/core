@@ -8,7 +8,9 @@ import hello.core.member.MemberServiceImpl;
 // 순수 자바로 한 test
 public class MemberApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+//        MemberService memberService = new MemberServiceImpl();
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "A", Gradle.VIP);
         memberService.join(member);
 
