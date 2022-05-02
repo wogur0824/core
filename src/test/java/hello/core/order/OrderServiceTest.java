@@ -30,7 +30,7 @@ public class OrderServiceTest {
         Member member = new Member(memberId, "A", Gradle.VIP);
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberId, "pringles", 10000);
-        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+        Order order = orderService.createOrder(memberId, "pringles", 20000);
+        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(2000);
     }
 }

@@ -21,7 +21,7 @@ public class OrderApp {
         Member member = new Member(memberId, "A", Gradle.VIP);
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberId, "pringles", 10000);
+        Order order = orderService.createOrder(memberId, "pringles", 20000);
 
         System.out.println("order = " + order);
         System.out.println("order.calculatePrice = " + order.calculatePrice()); // 기존 아이템 가격에서 할인된 가격을 뺸 가격
