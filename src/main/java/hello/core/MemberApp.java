@@ -9,7 +9,7 @@ import hello.core.member.MemberServiceImpl;
 public class MemberApp {
     public static void main(String[] args) {
         AppConfig appConfig = new AppConfig();
-//        MemberService memberService = new MemberServiceImpl();
+//      MemberService memberService = new MemberServiceImpl();
         MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "A", Gradle.VIP);
         memberService.join(member);

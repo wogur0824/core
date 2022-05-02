@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class MemberServiceTest {
 
     // Junit을 이용한 test
-//    MemberService memberService = new MemberServiceImpl();
+//  MemberService memberService = new MemberServiceImpl();
 
     MemberService memberService;
 

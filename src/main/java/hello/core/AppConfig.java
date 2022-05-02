@@ -31,7 +31,7 @@ public class AppConfig {
         return new RateDiscountPolicy();
         // 고정 정액 할인 정책 -> 정률 할인 정책으로 바꾸는 것
     }
-
+    //
     // AppConfig의 리팩토링
     // new MemoryMemberRepository()의 부분을 중복되어 있어서 제거를 했다.
     // 그럼 MemoryMemberRepository를 다른 구현체로 변경할 때 한 부분만 변경하면 된다.
