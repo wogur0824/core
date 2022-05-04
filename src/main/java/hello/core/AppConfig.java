@@ -8,7 +8,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
-
+//
 // DI 컨테이너(어샘블러 or 오브젝트 팩토리) => AppConfig
 public class AppConfig {
     // AppConfig 파일은 애플리케이의 실제 동작에 필요한 구현 객체를 생성한다.
