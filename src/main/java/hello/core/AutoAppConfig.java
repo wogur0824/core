@@ -18,9 +18,9 @@ import org.springframework.context.annotation.FilterType;
 )  // 스프링 빈을 자동으로 끌어올리는 어노테이션
 public class AutoAppConfig {
 
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 
 }
