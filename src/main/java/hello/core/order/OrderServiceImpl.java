@@ -29,8 +29,8 @@ public class OrderServiceImpl implements OrderService{
     // 기존에 있던 private final MemberRepository memberRepository와 private final DiscountPolicy discountPolicy의
     // final를 삭제해주고 setter라 불리는 수정자 메서드를 통해 의존관계를 주입시켜주는 방법이다.
     // 수정자 주입(setter 주입)
-//    private MemberRepository memberRepository;
-//   private DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
 
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
@@ -44,21 +44,28 @@ public class OrderServiceImpl implements OrderService{
 //        this.discountPolicy = discountPolicy;
 //    }
 
-//    @Autowired
-//    // 다양한 의존관계 주입 방법 중에 하나인 생성자 주입
-//    // 생성자가 딱 1개만 있을 경우, @Autowired 어노테이션을 생략할 수 있다.
-//    // 2개 이상부터는 어떤 생성자를 주입시킬지 @Autowired로 지정을 해주어야 한다.
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-////        System.out.println("memberRepository = " + memberRepository);
-////        System.out.println("discountPolicy = " + discountPolicy);
+    @Autowired
+    // 다양한 의존관계 주입 방법 중에 하나인 생성자 주입
+    // 생성자가 딱 1개만 있을 경우, @Autowired 어노테이션을 생략할 수 있다.
+    // 2개 이상부터는 어떤 생성자를 주입시킬지 @Autowired로 지정을 해주어야 한다.
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        System.out.println("memberRepository = " + memberRepository);
+//        System.out.println("discountPolicy = " + discountPolicy);
 //        System.out.println("1.OrderServiceImpl.OrderServiceImpl");
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+    // 다양한 의존관계 주입 방법 중에 하나인 일반 메서드 주입
+    @Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     // 다양한 의존관계 주입 방법 중에 하나인 필드 주입
-    @Autowired private MemberRepository memberRepository;
-    @Autowired private  DiscountPolicy discountPolicy;
+//    @Autowired private MemberRepository memberRepository;
+//    @Autowired private  DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
