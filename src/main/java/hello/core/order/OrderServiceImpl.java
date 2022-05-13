@@ -6,7 +6,10 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     // memberrepository에서 회원을 찾아야 됨
@@ -23,6 +26,7 @@ public class OrderServiceImpl implements OrderService{
     // 3. 하지만 이렇게만 설정해놓으면 discountPolicy가 아무 값도 할당이 안되어서 null이여서 오류가 터진다.
 
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
