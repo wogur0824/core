@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService{
 
 
     // 기존에 있던 private final MemberRepository memberRepository와 private final DiscountPolicy discountPolicy의
-    // final를 삭제해주고 setter라 불리는 수정자 메서드를 통해 의존관계를 주입시켜주는 방법인
+    // final를 삭제해주고 setter라 불리는 수정자 메서드를 통해 의존관계를 주입시켜주는 방법이다.
     // 수정자 주입(setter 주입)
     private MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;
