@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -14,5 +17,10 @@ import org.springframework.context.annotation.FilterType;
         // AppConfig을 등록하면 중복으로 충돌이 일어나므로 AppConfig 파일은 componentscan에서 뺴준다.
 )  // 스프링 빈을 자동으로 끌어올리는 어노테이션
 public class AutoAppConfig {
+
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 
 }
