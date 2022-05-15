@@ -6,10 +6,13 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
+// lombok 라이브러리의 기능 중 하나로 이 어노테이션만 붙이면 final로 붙은 필드를 자동으로 생성자를 만들어 준다.
 public class OrderServiceImpl implements OrderService{
 
     // memberrepository에서 회원을 찾아야 됨
@@ -44,17 +47,17 @@ public class OrderServiceImpl implements OrderService{
 //        this.discountPolicy = discountPolicy;
 //    }
 
-    @Autowired
-    // 다양한 의존관계 주입 방법 중에 하나인 생성자 주입
-    // 생성자가 딱 1개만 있을 경우, @Autowired 어노테이션을 생략할 수 있다.
-    // 2개 이상부터는 어떤 생성자를 주입시킬지 @Autowired로 지정을 해주어야 한다.
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        System.out.println("memberRepository = " + memberRepository);
-//        System.out.println("discountPolicy = " + discountPolicy);
-//        System.out.println("1.OrderServiceImpl.OrderServiceImpl");
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    // 다양한 의존관계 주입 방법 중에 하나인 생성자 주입
+//    // 생성자가 딱 1개만 있을 경우, @Autowired 어노테이션을 생략할 수 있다.
+//    // 2개 이상부터는 어떤 생성자를 주입시킬지 @Autowired로 지정을 해주어야 한다.
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+////        System.out.println("memberRepository = " + memberRepository);
+////        System.out.println("discountPolicy = " + discountPolicy);
+////        System.out.println("1.OrderServiceImpl.OrderServiceImpl");
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     // 다양한 의존관계 주입 방법 중에 하나인 일반 메서드 주입
 //    @Autowired
