@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService{
 
     // memberrepository에서 회원을 찾아야 됨
-//    private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
     // 회원 등급이 뭔지를 알아야되서 discountpolicy에서 찾아야 됨
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private  final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     // 기존에 있던 고정 정액 할인에서 새로운 할인정책인 정률 할인으로 바꾸는 법
     // (추상에만 의존하는게 아니고 구현체에도 의존하므로 DIP, OCP 위반)
 
-//    private final DiscountPolicy discountPolicy;
+    private final DiscountPolicy discountPolicy;
     // 1. orderservice는 interface 즉, 추상에만 의존해야되서 private DiscountPolicy discountPolicy;만 적어준다. (DIP 지킴)
     // 2. final을 붙이지 않은 이유는 final이 붙으면 무조건 값이 할당되어야 하니깐 빼준다.
     // 3. 하지만 이렇게만 설정해놓으면 discountPolicy가 아무 값도 할당이 안되어서 null이여서 오류가 터진다.
@@ -29,8 +29,8 @@ public class OrderServiceImpl implements OrderService{
     // 기존에 있던 private final MemberRepository memberRepository와 private final DiscountPolicy discountPolicy의
     // final를 삭제해주고 setter라 불리는 수정자 메서드를 통해 의존관계를 주입시켜주는 방법이다.
     // 수정자 주입(setter 주입)
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
+//    private MemberRepository memberRepository;
+//    private DiscountPolicy discountPolicy;
 
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
@@ -57,11 +57,11 @@ public class OrderServiceImpl implements OrderService{
     }
 
     // 다양한 의존관계 주입 방법 중에 하나인 일반 메서드 주입
-    @Autowired
-    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     // 다양한 의존관계 주입 방법 중에 하나인 필드 주입
 //    @Autowired private MemberRepository memberRepository;
