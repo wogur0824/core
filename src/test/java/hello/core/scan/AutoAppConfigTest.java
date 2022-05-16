@@ -17,6 +17,8 @@ public class AutoAppConfigTest {
     @Test
     void basicScan() {
 
+        // FixDiscountPolicy와 RateDiscountPolicy 둘 다 @Component 어노테이션을 작성하고
+        // 둘다 스프링 빈으로 등록을 하면 nouniquebeandefinitionexception 오류가 발생하게 된다.
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
 
         MemberService memberService = ac.getBean(MemberService.class);

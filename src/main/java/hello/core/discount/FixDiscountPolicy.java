@@ -2,9 +2,13 @@ package hello.core.discount;
 
 import hello.core.member.Gradle;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.security.PrivateKey;
 
+@Component
+@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy{ // 고정 정액 할인 정책
 
     private int discountFixAmount = 1000; // VIP등급인 회원은 무조건 1000원 할인 적용
