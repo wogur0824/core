@@ -1,4 +1,4 @@
-package hello.core.scan.filter;
+package hello.core.member.scan.filter;
 
 import java.lang.annotation.*;
 
