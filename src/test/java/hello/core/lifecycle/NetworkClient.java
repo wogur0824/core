@@ -3,6 +3,9 @@ package hello.core.lifecycle;
 //import org.springframework.beans.factory.DisposableBean;
 //import org.springframework.beans.factory.InitializingBean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 // InitializingBean을 implements 하면 초기화 빈이 된다.
 //public class NetworkClient implements InitializingBean, DisposableBean {
 public class NetworkClient{
@@ -32,6 +35,7 @@ public class NetworkClient{
     }
 
 //    @Override
+    @PostConstruct
     public void init() {
         // 의존관계가 끝나면 호출해주겠다는 메소드
         System.out.println("NetworkClient.init");
@@ -40,6 +44,7 @@ public class NetworkClient{
     }
 
 //    @Override
+    @PreDestroy
     public void close() {
         System.out.println("NetworkClient.close");
         disconnect();
