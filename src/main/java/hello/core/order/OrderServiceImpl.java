@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 //import hello.core.discount.FixDiscountPolicy;
 //import hello.core.discount.RateDiscountPolicy;
@@ -51,7 +52,7 @@ public class OrderServiceImpl implements OrderService{
     // 다양한 의존관계 주입 방법 중에 하나인 생성자 주입
     // 생성자가 딱 1개만 있을 경우, @Autowired 어노테이션을 생략할 수 있다.
     // 2개 이상부터는 어떤 생성자를 주입시킬지 @Autowired로 지정을 해주어야 한다.
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         // @Autowired는 타입을 보고 매칭을 하는데 이때, 타입안에 2개 이상의 빈이 존재할 때
         // 필드 이름, 파라미터 이름으로 빈 이름을 추가 매칭한다.
         // 그래서 discountpolicy안에 있는 빈이 fix와 rate 두개의 빈이 존재하므로
